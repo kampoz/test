@@ -11,7 +11,7 @@ import com.kampoz.madiffapp.SquareImageView;
 import java.util.ArrayList;
 
 /**
- * Created by wasili on 2017-05-22.
+ * Created by kampoz on 2017-05-22.
  */
 
 public class GifsAdapter extends RecyclerView.Adapter<GifsAdapter.ViewHolder> {

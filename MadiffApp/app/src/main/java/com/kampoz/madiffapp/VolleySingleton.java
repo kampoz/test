@@ -8,27 +8,16 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 
 /**
- * Created by wasili on 2017-05-22.
+ * Created by kampoz on 2017-05-22.
  */
 
 public class VolleySingleton {
   private static VolleySingleton mInstance = null;
   private RequestQueue mRequestQueue;
-  private ImageLoader mImageLoader;
-  private Context context;
 
   private VolleySingleton(Context context){
 
     mRequestQueue = Volley.newRequestQueue(context);
-    mImageLoader = new ImageLoader(this.mRequestQueue, new ImageLoader.ImageCache() {
-      private final LruCache<String, Bitmap> mCache = new LruCache<String, Bitmap>(10);
-      public void putBitmap(String url, Bitmap bitmap) {
-        mCache.put(url, bitmap);
-      }
-      public Bitmap getBitmap(String url) {
-        return mCache.get(url);
-      }
-    });
   }
 
   public static VolleySingleton getInstance(Context context){
@@ -40,10 +29,6 @@ public class VolleySingleton {
 
   public RequestQueue getRequestQueue(){
     return this.mRequestQueue;
-  }
-
-  public ImageLoader getImageLoader(){
-    return this.mImageLoader;
   }
 
 }
